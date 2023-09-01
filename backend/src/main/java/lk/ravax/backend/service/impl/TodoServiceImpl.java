@@ -42,4 +42,16 @@ public class TodoServiceImpl implements TodoService {
         }
         return new ArrayList<>();
     }
+
+    @Override
+    public void deleteTodo(int id) {
+        try{
+            if(!repo.existsById(id)){
+                throw new RuntimeException("Student Not Exists");
+            }
+            repo.deleteById(id);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
 }

@@ -30,4 +30,10 @@ public class TodoController {
         return new ResponseUtil("200", "Students Fetched", list);
     }
 
+    @DeleteMapping("/{id}")
+    public ResponseUtil deleteTodo(@PathVariable int id){
+        todoService.deleteTodo(id);
+        return new ResponseUtil("200", "Student "+id+" Deleted", null);
+    }
+
 }

@@ -8,4 +8,6 @@ public interface TodoService {
     void addTodo(TodoDto dto);
 
     ArrayList<TodoDto> getAllTodo();
+
+    void deleteTodo(int id);
 }
