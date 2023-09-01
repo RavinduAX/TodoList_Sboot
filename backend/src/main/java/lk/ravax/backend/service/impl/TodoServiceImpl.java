@@ -23,21 +23,22 @@ public class TodoServiceImpl implements TodoService {
     @Override
     public void addTodo(TodoDto dto) {
         try {
-            if(repo.existsById(dto.getId())){
-                throw new RuntimeException("Student" + dto.getId()+" Already Exists");
+            if (repo.existsById(dto.getId())) {
+                throw new RuntimeException("Student" + dto.getId() + " Already Exists");
             }
             repo.save(mapper.map(dto, Todo.class));
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     @Override
     public ArrayList<TodoDto> getAllTodo() {
-        try{
+        try {
             List<Todo> list = repo.findAll();
-            return mapper.map(list, new TypeToken<ArrayList<TodoDto>>(){}.getType());
-        }catch (Exception e){
+            return mapper.map(list, new TypeToken<ArrayList<TodoDto>>() {
+            }.getType());
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return new ArrayList<>();
@@ -45,24 +46,24 @@ public class TodoServiceImpl implements TodoService {
 
     @Override
     public void deleteTodo(int id) {
-        try{
-            if(!repo.existsById(id)){
+        try {
+            if (!repo.existsById(id)) {
                 throw new RuntimeException("Student Not Exists");
             }
             repo.deleteById(id);
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     @Override
     public void updateTodo(int id, TodoDto dto) {
-        try{
-            if(!repo.existsById(id)){
+        try {
+            if (!repo.existsById(id)) {
                 throw new RuntimeException("Student Not Exists To Update");
             }
             repo.save(mapper.map(dto, Todo.class));
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

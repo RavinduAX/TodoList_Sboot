@@ -19,27 +19,27 @@ public class TodoController {
     TodoService todoService;
 
     @PostMapping("/")
-    public ResponseUtil addTodo(@RequestBody TodoDto dto){
+    public ResponseUtil addTodo(@RequestBody TodoDto dto) {
         todoService.addTodo(dto);
         return new ResponseUtil("200", "Student Added", null);
     }
 
     @GetMapping("/")
-    public ResponseUtil getAllTodo(){
+    public ResponseUtil getAllTodo() {
         ArrayList<TodoDto> list = todoService.getAllTodo();
         return new ResponseUtil("200", "Students Fetched", list);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseUtil deleteTodo(@PathVariable int id){
+    public ResponseUtil deleteTodo(@PathVariable int id) {
         todoService.deleteTodo(id);
-        return new ResponseUtil("200", "Student "+id+" Deleted", null);
+        return new ResponseUtil("200", "Student " + id + " Deleted", null);
     }
 
     @PutMapping("/{id}")
-    public ResponseUtil updateTodo(@PathVariable int id, @RequestBody TodoDto dto){
+    public ResponseUtil updateTodo(@PathVariable int id, @RequestBody TodoDto dto) {
         todoService.updateTodo(id, dto);
-        return new ResponseUtil("200", "Student "+id+" Updated", null);
+        return new ResponseUtil("200", "Student " + id + " Updated", null);
     }
 
 }
