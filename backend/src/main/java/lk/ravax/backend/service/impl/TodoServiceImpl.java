@@ -54,4 +54,18 @@ public class TodoServiceImpl implements TodoService {
             e.printStackTrace();
         }
     }
+
+    @Override
+    public void updateTodo(int id, TodoDto dto) {
+        try{
+            if(!repo.existsById(id)){
+                throw new RuntimeException("Student Not Exists To Update");
+            }
+            repo.save(mapper.map(dto, Todo.class));
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+
 }

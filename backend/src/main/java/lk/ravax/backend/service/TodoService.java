@@ -10,4 +10,6 @@ public interface TodoService {
     ArrayList<TodoDto> getAllTodo();
 
     void deleteTodo(int id);
+
+    void updateTodo(int id, TodoDto dto);
 }

@@ -36,4 +36,10 @@ public class TodoController {
         return new ResponseUtil("200", "Student "+id+" Deleted", null);
     }
 
+    @PutMapping("/{id}")
+    public ResponseUtil updateTodo(@PathVariable int id, @RequestBody TodoDto dto){
+        todoService.updateTodo(id, dto);
+        return new ResponseUtil("200", "Student "+id+" Updated", null);
+    }
+
 }
