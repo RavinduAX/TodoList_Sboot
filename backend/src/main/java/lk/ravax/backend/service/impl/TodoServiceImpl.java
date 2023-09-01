@@ -1,4 +1,8 @@
 package lk.ravax.backend.service.impl;
 
-public class TodoServiceImpl {
+import lk.ravax.backend.service.TodoService;
+import org.springframework.stereotype.Service;
+
+@Service
+public class TodoServiceImpl implements TodoService {
 }
