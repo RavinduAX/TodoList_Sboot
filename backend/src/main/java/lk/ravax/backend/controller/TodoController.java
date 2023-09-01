@@ -3,8 +3,12 @@ package lk.ravax.backend.controller;
 import lk.ravax.backend.dto.TodoDto;
 import lk.ravax.backend.service.TodoService;
 import lk.ravax.backend.util.ResponseUtil;
+import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @CrossOrigin
@@ -19,4 +23,11 @@ public class TodoController {
         todoService.addTodo(dto);
         return new ResponseUtil("200", "Student Added", null);
     }
+
+    @GetMapping("/")
+    public ResponseUtil getAllTodo(){
+        ArrayList<TodoDto> list = todoService.getAllTodo();
+        return new ResponseUtil("200", "Students Fetched", list);
+    }
+
 }

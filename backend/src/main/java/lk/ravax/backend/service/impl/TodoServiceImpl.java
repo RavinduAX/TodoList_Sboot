@@ -5,8 +5,12 @@ import lk.ravax.backend.entity.Todo;
 import lk.ravax.backend.repo.TodoRepo;
 import lk.ravax.backend.service.TodoService;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class TodoServiceImpl implements TodoService {
@@ -26,5 +30,16 @@ public class TodoServiceImpl implements TodoService {
         }catch(Exception e){
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public ArrayList<TodoDto> getAllTodo() {
+        try{
+            List<Todo> list = repo.findAll();
+            return mapper.map(list, new TypeToken<ArrayList<TodoDto>>(){}.getType());
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return new ArrayList<>();
     }
 }
