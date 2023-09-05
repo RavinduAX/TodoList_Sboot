@@ -23,9 +23,8 @@ const Todobody = () => {
       let id = uuidv4();
       //add todo
       const newTodo = { id:id, todo:text }
-      console.log(newTodo)
       axios.post('http://localhost:8080/api/v1/todo/', newTodo)
-         .then(res => { res.data.code === '200' && alert(res.data.msg); getTodos(); })
+         .then(res => { res.data.code === '200' && alert(res.data.msg); getTodos(); setText('') })
          .catch(err => console.log(err))
       
    }
