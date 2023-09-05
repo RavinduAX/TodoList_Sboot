@@ -8,11 +8,13 @@ import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
+@Transactional
 public class TodoServiceImpl implements TodoService {
 
     @Autowired
@@ -23,8 +25,8 @@ public class TodoServiceImpl implements TodoService {
     @Override
     public void addTodo(TodoDto dto) {
         try {
-            if (repo.existsById(dto.getId())) {
-                throw new RuntimeException("Student" + dto.getId() + " Already Exists");
+            if (repo.existTodo(dto.getId()) != null) {
+                throw new RuntimeException("Student " + dto.getId() + " Already Exists");
             }
             repo.save(mapper.map(dto, Todo.class));
         } catch (Exception e) {
@@ -45,9 +47,9 @@ public class TodoServiceImpl implements TodoService {
     }
 
     @Override
-    public void deleteTodo(int id) {
+    public void deleteTodo(String id) {
         try {
-            if (!repo.existsById(id)) {
+            if (repo.existTodo(id) == null) {
                 throw new RuntimeException("Student Not Exists");
             }
             repo.deleteById(id);
@@ -57,9 +59,9 @@ public class TodoServiceImpl implements TodoService {
     }
 
     @Override
-    public void updateTodo(int id, TodoDto dto) {
+    public void updateTodo(String id, TodoDto dto) {
         try {
-            if (!repo.existsById(id)) {
+            if (repo.existTodo(id) == null) {
                 throw new RuntimeException("Student Not Exists To Update");
             }
             repo.save(mapper.map(dto, Todo.class));

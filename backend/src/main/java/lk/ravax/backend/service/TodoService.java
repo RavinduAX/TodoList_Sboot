@@ -9,7 +9,7 @@ public interface TodoService {
 
     ArrayList<TodoDto> getAllTodo();
 
-    void deleteTodo(int id);
+    void deleteTodo(String id);
 
-    void updateTodo(int id, TodoDto dto);
+    void updateTodo(String id, TodoDto dto);
 }

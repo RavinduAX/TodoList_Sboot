@@ -8,23 +8,22 @@ import javax.persistence.Id;
 @Entity
 public class Todo {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private String id;
     private String todo;
 
     public Todo() {
     }
 
-    public Todo(int id, String todo) {
+    public Todo(String id, String todo) {
         this.id = id;
         this.todo = todo;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

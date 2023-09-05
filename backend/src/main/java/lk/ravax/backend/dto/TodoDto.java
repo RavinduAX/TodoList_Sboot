@@ -1,22 +1,22 @@
 package lk.ravax.backend.dto;
 
 public class TodoDto {
-    private int id;
+    private String id;
     private String todo;
 
     public TodoDto() {
     }
 
-    public TodoDto(int id, String todo) {
+    public TodoDto(String id, String todo) {
         this.id = id;
         this.todo = todo;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
