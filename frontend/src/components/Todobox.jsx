@@ -34,7 +34,7 @@ const Todobox = ({todo, getTodos}) => {
                </div>
             </div>
             :
-            <TodoEdit />
+            <TodoEdit todo={todo} getTodos={getTodos} setEdit={setEdit}/>
          }
 
       </div>
