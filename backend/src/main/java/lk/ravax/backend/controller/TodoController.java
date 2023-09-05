@@ -31,13 +31,13 @@ public class TodoController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseUtil deleteTodo(@PathVariable int id) {
+    public ResponseUtil deleteTodo(@PathVariable String id) {
         todoService.deleteTodo(id);
         return new ResponseUtil("200", "Student " + id + " Deleted", null);
     }
 
     @PutMapping("/{id}")
-    public ResponseUtil updateTodo(@PathVariable int id, @RequestBody TodoDto dto) {
+    public ResponseUtil updateTodo(@PathVariable String id, @RequestBody TodoDto dto) {
         todoService.updateTodo(id, dto);
         return new ResponseUtil("200", "Student " + id + " Updated", null);
     }
