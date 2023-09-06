@@ -26,7 +26,7 @@ const Todobox = ({todo, getTodos}) => {
    return (
       <div>
          {!edit ?
-            <div className='bg-gray-600 flex justify-between items-center my-3 ps-2'>
+            <div className='bg-green-500 flex justify-between items-center my-3 ps-2'>
                <p className={`p-2 pointerDefault text-white ${completed ? 'taskDone' : ''}`} onClick={toggleComplete}>{todo.todo}</p>
                <div className='me-2 space-x-1'>
                   <button className='p-1 text-white text-xl' onClick={toggleEdit}><MdEdit /></button>

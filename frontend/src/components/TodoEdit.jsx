@@ -14,9 +14,9 @@ const TodoEdit = ({ todo, getTodos, setEdit }) => {
    }
 
   return (
-     <div className='border-2 border-gray-600 flex justify-between mb-3'>
+     <div className='border-2 border-green-600 flex justify-between mb-3'>
         <input type="text" onChange={(e)=>{setText(e.target.value)}}  placeholder={todo.todo} className='w-full focus:outline-none p-2' value={text} />
-        <button onClick={(e)=>{handleEditClick(e, todo.id)}} className='py-1 px-6 bg-gray-600 text-white'>Edit</button>
+        <button onClick={(e) => { handleEditClick(e, todo.id) }} className='py-1 px-6 bg-green-500 text-white'>Edit</button>
      </div>
   )
 }

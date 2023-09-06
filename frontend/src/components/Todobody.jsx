@@ -31,9 +31,9 @@ const Todobody = () => {
 
    return (
       <div>
-         <div className='border-2 border-gray-600 flex justify-between mb-12'>
+         <div className='border-2 border-green-600 flex justify-between mb-12'>
             <input onChange={(e) => { setText(e.target.value) }} value={text} type="text" placeholder='Add your task' className='w-full focus:outline-none p-2' />
-            <button onClick={handleAddClick} className='py-1 px-6 bg-gray-600 text-white'>Add</button>
+            <button onClick={handleAddClick} className='py-1 px-6 bg-green-500 text-white'>Add</button>
          </div>
          <div className='overflow-y-scroll max-h-[20rem]'>
             {todos.map((todo) => (
